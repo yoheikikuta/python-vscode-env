@@ -13,14 +13,18 @@
 	// You can edit these settings after create using File > Preferences > Settings > Remote.
 	"settings": { 
 		"terminal.integrated.shell.linux": "/bin/bash",
-		"python.pythonPath": "/usr/local/bin/python",
-		"python.linting.pylintEnabled": true,
-		"python.linting.pylintPath": "/usr/local/bin/pylint",
-		"python.linting.enabled": true
+		"python.pythonPath": "/opt/conda/bin/python",
+		"python.linting.pylintEnabled": false,
+		"python.linting.pep8Enabled": false,
+		"python.linting.enabled": true,
+		"python.linting.lintOnSave": true,
+		"python.linting.flake8Enabled": true,
+		"python.linting.mypyEnabled": true,
+		"python.formatting.provider": "black"
 	},
 
 	// Specifies a command to run after the container is created
-	"postCreateCommand": "sudo pip install -r requirements.txt",
+	"postCreateCommand": "sudo /opt/conda/bin/python -m pip install -r requirements.txt",
 
 	"extensions": [
 		"ms-python.python"
