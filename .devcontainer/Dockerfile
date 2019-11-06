@@ -27,11 +27,17 @@ RUN apt-get update \
     && apt-get install -y sudo \
     && echo $USERNAME ALL=\(root\) NOPASSWD:ALL > /etc/sudoers.d/$USERNAME \
     && chmod 0440 /etc/sudoers.d/$USERNAME \
+    && chown -R $USER_UID:$USER_GID /opt/conda/ \
     #
     # Clean up
     && apt-get autoremove -y \
     && apt-get clean -y \
     && rm -rf /var/lib/apt/lists/*
+
+# Create base conda environment
+ADD ./base.yml /
+RUN conda env update -f /base.yml && rm -rf /base.yml
+
 
 # Switch back to dialog for any ad-hoc use of apt-get
 ENV DEBIAN_FRONTEND=
