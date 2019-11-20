@@ -16,6 +16,7 @@
 		"python.pythonPath": "/opt/conda/bin/python",
 		"python.linting.pylintEnabled": false,
 		"python.linting.pep8Enabled": false,
+		"python.linting.pycodestyleEnabled": false,
 		"python.linting.enabled": true,
 		"python.linting.lintOnSave": true,
 		"python.linting.flake8Enabled": true,
